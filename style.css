@@ -1,0 +1,128 @@
+:root {
+  --bg: #0b1d2e;
+  --panel: #12304a;
+  --water: #1d4e74;
+  --water-hover: #2a6a9c;
+  --ship: #8fa3b3;
+  --hit: #e2543d;
+  --miss: #dfe9f1;
+  --sunk: #7a1f14;
+  --text: #eaf2f8;
+  --cell: clamp(24px, 4vw, 38px);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 16px;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", Arial, sans-serif;
+  text-align: center;
+}
+
+h1 {
+  margin: 8px 0;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 1.1rem;
+}
+
+#status {
+  min-height: 1.5em;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin: 16px 0;
+}
+
+section {
+  background: var(--panel);
+  padding: 16px;
+  border-radius: 12px;
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(10, var(--cell));
+  grid-template-rows: repeat(10, var(--cell));
+  gap: 2px;
+  direction: ltr;
+}
+
+.cell {
+  background: var(--water);
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  font-size: calc(var(--cell) * 0.5);
+  line-height: 1;
+  color: var(--bg);
+}
+
+.cell.ship {
+  background: var(--ship);
+}
+
+.cell.miss {
+  background: var(--miss);
+}
+
+.cell.hit {
+  background: var(--hit);
+}
+
+.cell.sunk {
+  background: var(--sunk);
+}
+
+.enemy .cell:not(.miss):not(.hit):not(.sunk) {
+  cursor: crosshair;
+}
+
+.enemy .cell:not(.miss):not(.hit):not(.sunk):hover {
+  background: var(--water-hover);
+}
+
+.enemy.locked .cell {
+  cursor: default;
+  pointer-events: none;
+}
+
+.fleet {
+  margin: 12px 0 0;
+}
+
+button {
+  font: inherit;
+}
+
+footer button {
+  margin: 4px;
+  padding: 10px 20px;
+  background: var(--water-hover);
+  color: var(--text);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+footer button:hover:not(:disabled) {
+  filter: brightness(1.2);
+}
+
+footer button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}

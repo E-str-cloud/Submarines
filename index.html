@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>משחק צוללות</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>משחק צוללות</h1>
+    <p id="status" aria-live="polite"></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>הלוח שלך</h2>
+      <div id="player-board" class="board"></div>
+      <p class="fleet">נותרו לך: <span id="player-left"></span></p>
+    </section>
+
+    <section>
+      <h2>לוח היריב</h2>
+      <div id="enemy-board" class="board enemy"></div>
+      <p class="fleet">נותרו ליריב: <span id="enemy-left"></span></p>
+    </section>
+  </main>
+
+  <footer>
+    <button id="shuffle">ערבב את הצי שלי</button>
+    <button id="restart">משחק חדש</button>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
